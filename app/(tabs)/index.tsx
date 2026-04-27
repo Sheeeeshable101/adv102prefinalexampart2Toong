@@ -9,6 +9,15 @@ import {
   View,
 } from "react-native";
 
+/*
+1. Use a 2D array for the grid. -1 means bomb, 0-8 means safe with neighbor bomb count.
+2. Randomly place bombs using a Set to avoid duplicates.
+3. After placing bombs, loop through each safe cell and count nearby bombs.
+4. Keep separate state for revealed cells and flagged cells so the UI updates easily.
+5. When a cell with 0 neighbors is clicked, use a queue to auto-reveal surrounding cells (flood-fill).
+6. Add inputs so users can change grid size and bomb count, plus a button to regenerate the board.
+*/
+
 const getNeighbors = (
   r: number,
   c: number,
